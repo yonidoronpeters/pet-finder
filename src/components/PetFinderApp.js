@@ -21,7 +21,7 @@ export default class PetFinderApp extends React.Component {
 
   getDogs(e) {
     if (e.target.elements.dogs.checked) {
-      const gender = e.target.elements.dogGender.value || 'both';
+      const gender = e.target.elements.dogGender.value;
       const dogBreeds = e.target.elements.dogBreed.value.trim();
       return {
         gender,
@@ -32,7 +32,7 @@ export default class PetFinderApp extends React.Component {
 
   getCatOptions(e) {
     if (e.target.elements.cats.checked) {
-      const gender = e.target.elements.catGender.value || 'both';
+      const gender = e.target.elements.catGender.value;
       const catBreeds = e.target.elements.catBreed.value.trim();
       return {
         gender,
@@ -84,7 +84,7 @@ export default class PetFinderApp extends React.Component {
             <div id="cats" hidden={true}>
               {/*gender radio buttons*/}
               <p>
-                <input type="radio" id="cat-both" name="catGender" value="both"/>
+                <input type="radio" id="cat-both" name="catGender" value="both" defaultChecked={true}/>
                 <label htmlFor="cat-both">Both</label>
                 <input type="radio" id="cat-female" name="catGender" value="female"/>
                 <label htmlFor="cat-female">Female</label>
@@ -101,7 +101,7 @@ export default class PetFinderApp extends React.Component {
               <div id="dogs" hidden={true}>
                 {/*gender radio buttons*/}
                 <p>
-                  <input type="radio" id="dog-both" name="dogGender" value="both"/>
+                  <input type="radio" id="dog-both" name="dogGender" value="both" defaultChecked={true}/>
                   <label htmlFor="dog-both">Both</label>
                   <input type="radio" id="dog-female" name="dogGender" value="female"/>
                   <label htmlFor="dog-female">Female</label>
