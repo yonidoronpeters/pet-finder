@@ -1,5 +1,6 @@
 import React from 'react';
 import Gender from './Gender';
+import Age from './Age';
 
 export default class PetFinderApp extends React.Component {
   state = {
@@ -23,7 +24,7 @@ export default class PetFinderApp extends React.Component {
   getDogs(e) {
     if (e.target.elements.dogs.checked) {
       const gender = e.target.elements.doggender.value;
-      const ages = this.getCheckboxValues(['puppy', 'adolescent', 'adult', 'senior']);
+      const ages = this.getCheckboxValues(['dog-young', 'dog-adolescent', 'dog-adult', 'dog-senior']);
       const dogBreeds = e.target.elements.dogBreed.value.trim();
       return {
         gender,
@@ -36,7 +37,7 @@ export default class PetFinderApp extends React.Component {
   getCatOptions(e) {
     if (e.target.elements.cats.checked) {
       const gender = e.target.elements.catgender.value;
-      const ages = this.getCheckboxValues(['kitten', 'junior', 'prime', 'mature']);
+      const ages = this.getCheckboxValues(['cat-young', 'cat-adolescent', 'cat-adult', 'cat-senior']);
       const hair = this.getCheckboxValues(['short', 'medium', 'long']);
       const catBreeds = e.target.elements.catBreed.value.trim();
       return {
@@ -97,20 +98,8 @@ export default class PetFinderApp extends React.Component {
               <input type="checkbox" id="option1" name="cats" onChange={this.handleAnimalSelected}/>
               <label htmlFor="option1">Cats</label>
               <div id="cats" hidden={true}>
-                {/*gender radio buttons*/}
-                <Gender pet="cat"/>
-                {/*age checkbox*/}
-                <div id="cat-age">
-                  <h3>Age</h3>
-                  <input type="checkbox" id="cat-kitten" name="catAge" value="kitten"/>
-                  <label htmlFor="cat-kitten">Less than a year</label><br/>
-                  <input type="checkbox" id="cat-junior" name="catAge" value="junior"/>
-                  <label htmlFor="cat-junior">1-2 years</label><br/>
-                  <input type="checkbox" id="cat-prime" name="catAge" value="prime"/>
-                  <label htmlFor="cat-prime">3-6 years</label><br/>
-                  <input type="checkbox" id="cat-mature" name="catAge" value="mature"/>
-                  <label htmlFor="cat-mature">7+ years</label>
-                </div>
+                <Gender pet="cat" />
+                <Age pet="cat" />
                 {/*breed*/}
                 <div id="cat-breed">
                   <h3>Breed</h3>
@@ -127,20 +116,8 @@ export default class PetFinderApp extends React.Component {
               <input type="checkbox" id="option2" name="dogs" onChange={this.handleAnimalSelected}/>
               <label htmlFor="option2">Dogs</label>
               <div id="dogs" hidden={true}>
-                {/*gender radio buttons*/}
                 <Gender pet="dog"/>
-                {/*age*/}
-                <div id="dog-age">
-                  <h3>Age</h3>
-                  <input type="checkbox" id="dog-puppy" name="dogAge" value="puppy"/>
-                  <label htmlFor="dog-puppy">Less than a year</label><br/>
-                  <input type="checkbox" id="dog-adolescent" name="dogAge" value="adolescent"/>
-                  <label htmlFor="dog-adolescent">1-2 years</label><br/>
-                  <input type="checkbox" id="dog-adult" name="dogAge" value="adult"/>
-                  <label htmlFor="dog-adult">3-6 years</label><br/>
-                  <input type="checkbox" id="dog-senior" name="dogAge" value="senior"/>
-                  <label htmlFor="dog-senior">7+ years</label>
-                </div>
+                <Age pet="dog"/>
                 {/*breed*/}
                 <input className="add-option__input" placeholder="dog breeds separated by commas" type="text"
                        name="dogBreed"/>

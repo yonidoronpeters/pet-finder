@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Gender = ({ pet }) => (
-  <div id="cat-gender">
+  <div className="gender">
     <h3>Gender</h3>
     <input type="radio" id={`${pet}-both`} name={`${pet}gender`} value="both" defaultChecked={true}/>
     <label htmlFor={`${pet}-both`}>Both</label>
