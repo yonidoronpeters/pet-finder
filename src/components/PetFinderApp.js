@@ -2,6 +2,7 @@ import React from 'react';
 import Gender from './Gender';
 import Age from './Age';
 import Breed from './Breed';
+import ContactInfo from './ContactInfo';
 
 export default class PetFinderApp extends React.Component {
   state = {
@@ -111,10 +112,7 @@ export default class PetFinderApp extends React.Component {
                 <Breed pet="dog"/>
               </div>
             </div>
-            <div className="clear">
-              <label htmlFor="phone">Phone number: </label>
-              <input className="add-option__input" placeholder="555-555-5555" type="tel" name="phone"/>
-            </div>
+           <ContactInfo />
             <button className="button">Submit</button>
           </form>
         </header>
