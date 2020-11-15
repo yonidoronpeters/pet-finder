@@ -1,4 +1,5 @@
 import React from 'react';
+import Gender from './Gender';
 
 export default class PetFinderApp extends React.Component {
   state = {
@@ -21,7 +22,7 @@ export default class PetFinderApp extends React.Component {
 
   getDogs(e) {
     if (e.target.elements.dogs.checked) {
-      const gender = e.target.elements.dogGender.value;
+      const gender = e.target.elements.doggender.value;
       const ages = this.getCheckboxValues(['puppy', 'adolescent', 'adult', 'senior']);
       const dogBreeds = e.target.elements.dogBreed.value.trim();
       return {
@@ -34,7 +35,7 @@ export default class PetFinderApp extends React.Component {
 
   getCatOptions(e) {
     if (e.target.elements.cats.checked) {
-      const gender = e.target.elements.catGender.value;
+      const gender = e.target.elements.catgender.value;
       const ages = this.getCheckboxValues(['kitten', 'junior', 'prime', 'mature']);
       const hair = this.getCheckboxValues(['short', 'medium', 'long']);
       const catBreeds = e.target.elements.catBreed.value.trim();
@@ -97,15 +98,7 @@ export default class PetFinderApp extends React.Component {
               <label htmlFor="option1">Cats</label>
               <div id="cats" hidden={true}>
                 {/*gender radio buttons*/}
-                <div id="cat-gender">
-                  <h3>Gender</h3>
-                  <input type="radio" id="cat-both" name="catGender" value="both" defaultChecked={true}/>
-                  <label htmlFor="cat-both">Both</label>
-                  <input type="radio" id="cat-female" name="catGender" value="female"/>
-                  <label htmlFor="cat-female">Female</label>
-                  <input type="radio" id="cat-male" name="catGender" value="male"/>
-                  <label htmlFor="cat-male">Male</label>
-                </div>
+                <Gender pet="cat"/>
                 {/*age checkbox*/}
                 <div id="cat-age">
                   <h3>Age</h3>
@@ -135,15 +128,7 @@ export default class PetFinderApp extends React.Component {
               <label htmlFor="option2">Dogs</label>
               <div id="dogs" hidden={true}>
                 {/*gender radio buttons*/}
-                <div id="dog-gender">
-                  <h3>Gender</h3>
-                  <input type="radio" id="dog-both" name="dogGender" value="both" defaultChecked={true}/>
-                  <label htmlFor="dog-both">Both</label>
-                  <input type="radio" id="dog-female" name="dogGender" value="female"/>
-                  <label htmlFor="dog-female">Female</label>
-                  <input type="radio" id="dog-male" name="dogGender" value="male"/>
-                  <label htmlFor="dog-male">Male</label>
-                </div>
+                <Gender pet="dog"/>
                 {/*age*/}
                 <div id="dog-age">
                   <h3>Age</h3>
