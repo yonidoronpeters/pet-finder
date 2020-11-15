@@ -1,6 +1,7 @@
 import React from 'react';
 import Gender from './Gender';
 import Age from './Age';
+import Breed from './Breed';
 
 export default class PetFinderApp extends React.Component {
   state = {
@@ -25,7 +26,7 @@ export default class PetFinderApp extends React.Component {
     if (e.target.elements.dogs.checked) {
       const gender = e.target.elements.doggender.value;
       const ages = this.getCheckboxValues(['dog-young', 'dog-adolescent', 'dog-adult', 'dog-senior']);
-      const dogBreeds = e.target.elements.dogBreed.value.trim();
+      const dogBreeds = e.target.elements.dogbreed.value.trim();
       return {
         gender,
         ages,
@@ -39,7 +40,7 @@ export default class PetFinderApp extends React.Component {
       const gender = e.target.elements.catgender.value;
       const ages = this.getCheckboxValues(['cat-young', 'cat-adolescent', 'cat-adult', 'cat-senior']);
       const hair = this.getCheckboxValues(['short', 'medium', 'long']);
-      const catBreeds = e.target.elements.catBreed.value.trim();
+      const catBreeds = e.target.elements.catbreed.value.trim();
       return {
         gender,
         ages,
@@ -98,29 +99,16 @@ export default class PetFinderApp extends React.Component {
               <input type="checkbox" id="option1" name="cats" onChange={this.handleAnimalSelected}/>
               <label htmlFor="option1">Cats</label>
               <div id="cats" hidden={true}>
-                <Gender pet="cat" />
-                <Age pet="cat" />
-                {/*breed*/}
-                <div id="cat-breed">
-                  <h3>Breed</h3>
-                  <input type="checkbox" id="cat-short" name="catHair" value="short"/>
-                  <label htmlFor="cat-short">Short hair</label><br/>
-                  <input type="checkbox" id="cat-medium" name="catHair" value="medium"/>
-                  <label htmlFor="cat-medium">Medium hair</label><br/>
-                  <input type="checkbox" id="cat-long" name="catHair" value="long"/>
-                  <label htmlFor="cat-long">Long hair</label>
-                </div>
-                <input className="add-option__input" placeholder="cat breeds separated by commas" type="text"
-                       name="catBreed"/>
+                <Gender pet="cat"/>
+                <Age pet="cat"/>
+                <Breed pet="cat"/>
               </div>
               <input type="checkbox" id="option2" name="dogs" onChange={this.handleAnimalSelected}/>
               <label htmlFor="option2">Dogs</label>
               <div id="dogs" hidden={true}>
                 <Gender pet="dog"/>
                 <Age pet="dog"/>
-                {/*breed*/}
-                <input className="add-option__input" placeholder="dog breeds separated by commas" type="text"
-                       name="dogBreed"/>
+                <Breed pet="dog"/>
               </div>
             </div>
             <div className="clear">
