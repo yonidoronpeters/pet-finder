@@ -1,8 +1,6 @@
 import React from 'react';
-import Gender from './Gender';
-import Age from './Age';
-import Breed from './Breed';
 import ContactInfo from './ContactInfo';
+import Pet from './Pet';
 
 export default class PetFinderApp extends React.Component {
   state = {
@@ -97,20 +95,8 @@ export default class PetFinderApp extends React.Component {
           <h2>Notify me for:</h2>
           <form className="add-option" onSubmit={this.handleSubmitForm}>
             <div className="petRow">
-              <input type="checkbox" id="option1" name="cats" onChange={this.handleAnimalSelected}/>
-              <label htmlFor="option1">Cats</label>
-              <div id="cats" hidden={true}>
-                <Gender pet="cat"/>
-                <Age pet="cat"/>
-                <Breed pet="cat"/>
-              </div>
-              <input type="checkbox" id="option2" name="dogs" onChange={this.handleAnimalSelected}/>
-              <label htmlFor="option2">Dogs</label>
-              <div id="dogs" hidden={true}>
-                <Gender pet="dog"/>
-                <Age pet="dog"/>
-                <Breed pet="dog"/>
-              </div>
+              <Pet type="cat" handleAnimalSelected={this.handleAnimalSelected}/>
+              <Pet type="dog" handleAnimalSelected={this.handleAnimalSelected}/>
             </div>
            <ContactInfo />
             <button className="button">Submit</button>

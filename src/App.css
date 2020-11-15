@@ -29,7 +29,7 @@
 }
 
 .petRow {
-  width: 50%;
+  /*width: 50%;*/
   float: left;
   display: flex;
   flex-direction: row;
