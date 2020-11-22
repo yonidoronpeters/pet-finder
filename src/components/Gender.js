@@ -1,14 +1,20 @@
 import React from 'react';
+import Radio from '@material-ui/core/Radio';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import RadioGroup from '@material-ui/core/RadioGroup';
 
 const Gender = ({ pet }) => (
   <div className="gender">
-    <h3>Gender</h3>
-    <input type="radio" id={`${pet}-both`} name={`${pet}gender`} value="both" defaultChecked={true}/>
-    <label htmlFor={`${pet}-both`}>Both</label>
-    <input type="radio" id={`${pet}-female`} name={`${pet}gender`} value="female"/>
-    <label htmlFor={`${pet}-female`}>Female</label>
-    <input type="radio" id={`${pet}-male`} name={`${pet}gender`} value="male"/>
-    <label htmlFor={`${pet}-male`}>Male</label>
+    <FormControl component="fieldset">
+      <FormLabel component="legend">Gender</FormLabel>
+      <RadioGroup aria-label="gender" name={`${pet}gender`} >
+        <FormControlLabel value="female" control={<Radio />} label="Female" />
+        <FormControlLabel value="male" control={<Radio />} label="Male" />
+        <FormControlLabel value="either" control={<Radio />} label="Either" />
+      </RadioGroup>
+    </FormControl>
   </div>
 );
 

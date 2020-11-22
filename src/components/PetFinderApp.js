@@ -3,6 +3,7 @@ import ContactInfo from './ContactInfo';
 import Pet from './Pet';
 import ConfirmationModal from './ConfirmationModal';
 import ErrorModal from './ErrorModal';
+import Button from '@material-ui/core/Button';
 
 export default class PetFinderApp extends React.Component {
   state = {
@@ -112,7 +113,7 @@ export default class PetFinderApp extends React.Component {
               <Pet type="dog" handleAnimalSelected={this.handleAnimalSelected}/>
             </div>
             <ContactInfo/>
-            <button className="button">Submit</button>
+            <Button variant="contained" type="submit">Submit</Button>
           </form>
           <ConfirmationModal
             subscription={this.state.subscription}
