@@ -1,11 +1,12 @@
 import React from 'react';
 import ContactInfo from './ContactInfo';
 import Pet from './Pet';
+import ConfirmationModal from './ConfirmationModal';
 
 export default class PetFinderApp extends React.Component {
   state = {
     errors: [],
-    subscription: {}
+    subscription: undefined
   };
 
   handleSubmitForm = (e) => {
@@ -87,6 +88,10 @@ export default class PetFinderApp extends React.Component {
     document.getElementById(animal).hidden = !currentVal;
   };
 
+  handleCloseModal = () => {
+    this.setState(() => ({ subscription: undefined }));
+  };
+
   render() {
     return (
       <div className="App">
@@ -98,9 +103,13 @@ export default class PetFinderApp extends React.Component {
               <Pet type="cat" handleAnimalSelected={this.handleAnimalSelected}/>
               <Pet type="dog" handleAnimalSelected={this.handleAnimalSelected}/>
             </div>
-           <ContactInfo />
+            <ContactInfo/>
             <button className="button">Submit</button>
           </form>
+          <ConfirmationModal
+            subscription={this.state.subscription}
+            handleCloseModal={this.handleCloseModal}
+          />
         </header>
       </div>
     );
