@@ -2,6 +2,7 @@ import React from 'react';
 import ContactInfo from './ContactInfo';
 import Pet from './Pet';
 import ConfirmationModal from './ConfirmationModal';
+import ErrorModal from './ErrorModal';
 
 export default class PetFinderApp extends React.Component {
   state = {
@@ -17,7 +18,11 @@ export default class PetFinderApp extends React.Component {
     const optionSelectError = !cats && !dogs && 'You must select at least 1 option';
     this.setState(() => ({
         errors: [phoneError, optionSelectError].filter(Boolean),
-        subscription: { dogs, cats }
+        subscription: {
+          dogs,
+          cats,
+          contact: { phone: e.target.elements.phone.value }
+        }
       }),
       this.handleAddNotification);
   };
@@ -67,7 +72,7 @@ export default class PetFinderApp extends React.Component {
       return 'You must provide a phone number';
     }
     if (!phone.match(phoneRegEx)) {
-      return `Bad phone number: ${phone}`;
+      return `Invalid phone number: ${phone}`;
     }
   };
 
@@ -77,7 +82,7 @@ export default class PetFinderApp extends React.Component {
     } else {
       console.log(`errors: ${this.state.errors}`);
       this.setState(() => ({
-        errors: []
+        subscription: undefined
       }));
     }
   };
@@ -89,7 +94,10 @@ export default class PetFinderApp extends React.Component {
   };
 
   handleCloseModal = () => {
-    this.setState(() => ({ subscription: undefined }));
+    this.setState(() => ({
+      subscription: undefined,
+      errors: []
+    }));
   };
 
   render() {
@@ -108,6 +116,10 @@ export default class PetFinderApp extends React.Component {
           </form>
           <ConfirmationModal
             subscription={this.state.subscription}
+            handleCloseModal={this.handleCloseModal}
+          />
+          <ErrorModal
+            errors={this.state.errors}
             handleCloseModal={this.handleCloseModal}
           />
         </header>
