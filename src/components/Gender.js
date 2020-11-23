@@ -9,10 +9,10 @@ const Gender = ({ pet }) => (
   <div className="gender">
     <FormControl component="fieldset">
       <FormLabel component="legend">Gender</FormLabel>
-      <RadioGroup aria-label="gender" name={`${pet}gender`} >
-        <FormControlLabel value="female" control={<Radio />} label="Female" />
-        <FormControlLabel value="male" control={<Radio />} label="Male" />
-        <FormControlLabel value="either" control={<Radio />} label="Either" />
+      <RadioGroup aria-label="gender" name={`${pet}gender`} defaultValue={'either'}>
+        <FormControlLabel value="female" control={<Radio/>} label="Female"/>
+        <FormControlLabel value="male" control={<Radio/>} label="Male"/>
+        <FormControlLabel value="either" control={<Radio/>} id={`${pet}either`} label="Either"/>
       </RadioGroup>
     </FormControl>
   </div>
