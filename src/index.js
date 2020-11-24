@@ -6,9 +6,7 @@ import PetFinderApp from './components/PetFinderApp';
 import App from './App';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <PetFinderApp />
-  </React.StrictMode>,
+  <PetFinderApp/>,
   document.getElementById('root')
 );
 

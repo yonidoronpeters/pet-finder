@@ -23,7 +23,6 @@ const ErrorModal = ({ errors, handleCloseModal }) => (
   <Modal
     open={!!errors.length}
     onClose={handleCloseModal}
-    contentLabel="Error"
     closeAfterTransition
     className="error-modal"
   >

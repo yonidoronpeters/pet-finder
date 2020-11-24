@@ -23,7 +23,6 @@ const ConfirmationModal = ({ subscription, handleCloseModal }) => (
   <Modal
     open={!!subscription}
     onClose={handleCloseModal}
-    contentLabel="Pet Notification"
     closeAfterTransition
     className="modal"
   >
