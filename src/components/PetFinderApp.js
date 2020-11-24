@@ -109,7 +109,7 @@ export default class PetFinderApp extends React.Component {
           <h1>Pet Finder</h1>
           <h2>Notify me for:</h2>
           <form className="add-option" onSubmit={this.handleSubmitForm}>
-            <Grid container spacing={5}>
+            <Grid container spacing={8}>
               <Grid item xs>
                 <Pet type="cat" handleAnimalSelected={this.handleAnimalSelected}/>
               </Grid>
