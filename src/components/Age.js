@@ -9,7 +9,7 @@ const Age = ({ pet }) => (
   <div className="age">
     <FormControl component="fieldset">
       <FormLabel component="legend">Age</FormLabel>
-      <FormGroup aria-label="gender" name={`${pet}age`}>
+      <FormGroup aria-label="age" name={`${pet}age`}>
         <FormControlLabel value={`${pet}-young`} control={<Checkbox/>} label="Less than a year"/>
         <FormControlLabel value={`${pet}-adolescent`} control={<Checkbox/>} label="1-2 years"/>
         <FormControlLabel value={`${pet}-adult`} control={<Checkbox/>} label="3-6 years"/>

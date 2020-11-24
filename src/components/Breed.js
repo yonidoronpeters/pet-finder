@@ -1,18 +1,26 @@
 import React from 'react';
+import FormLabel from '@material-ui/core/FormLabel';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControl from '@material-ui/core/FormControl';
+import TextField from '@material-ui/core/TextField';
+import FormHelperText from '@material-ui/core/FormHelperText';
 
 const Breed = ({ pet }) => (
   <div className="breed">
-    <h3>Breed</h3>
-    <div className="hair" hidden={pet !== 'cat'}>
-      <input type="checkbox" id="cat-short" name="cat-hair" value="short"/>
-      <label htmlFor="cat-short">Short hair</label><br/>
-      <input type="checkbox" id="cat-medium" name="cat-hair" value="medium"/>
-      <label htmlFor="cat-medium">Medium hair</label><br/>
-      <input type="checkbox" id="cat-long" name="cat-hair" value="long"/>
-      <label htmlFor="cat-long">Long hair</label><br/>
+    <div className="hair" hidden={pet !== 'cat'}><FormControl component="fieldset">
+      <FormLabel component="legend">Fur Length</FormLabel>
+      <FormGroup aria-label="cat-hair" name="cat-hair">
+        <FormControlLabel value="short" control={<Checkbox/>} label="Short hair"/>
+        <FormControlLabel value="medium" control={<Checkbox/>} label="Medium hair"/>
+        <FormControlLabel value="long" control={<Checkbox/>} label="Long hair"/>
+      </FormGroup>
+    </FormControl>
     </div>
-    <input className="add-option__input" placeholder={`${pet} breeds separated by commas`} type="text"
-           name={`${pet}breed`}/>
+    <TextField name={`${pet}breed`} id="standard-full-width" label="Breeds"/>
+    <FormHelperText>Enter {pet} breeds separated by commas</FormHelperText>
+    <FormHelperText>Leave empty for all breeds</FormHelperText>
   </div>
 );
 
