@@ -1,10 +1,12 @@
 import React from 'react';
+import TextField from '@material-ui/core/TextField';
 
 const ContactInfo = () => (
   <div className="clear">
-    <label htmlFor="phone">Phone number: </label>
-    <input className="add-option__input" placeholder="555-555-5555" type="tel" name="phone"/>
+    <br/>
+    <TextField name="phone" id="outlined-required" label="Phone" variant="outlined" required/>
+    <br/><br/>
   </div>
-)
+);
 
 export default ContactInfo;
