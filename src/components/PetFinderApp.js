@@ -4,6 +4,7 @@ import Pet from './Pet';
 import ConfirmationModal from './ConfirmationModal';
 import ErrorModal from './ErrorModal';
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 
 export default class PetFinderApp extends React.Component {
   state = {
@@ -108,10 +109,14 @@ export default class PetFinderApp extends React.Component {
           <h1>Pet Finder</h1>
           <h2>Notify me for:</h2>
           <form className="add-option" onSubmit={this.handleSubmitForm}>
-            <div className="petRow">
-              <Pet type="cat" handleAnimalSelected={this.handleAnimalSelected}/>
-              <Pet type="dog" handleAnimalSelected={this.handleAnimalSelected}/>
-            </div>
+            <Grid container spacing={5}>
+              <Grid item xs>
+                <Pet type="cat" handleAnimalSelected={this.handleAnimalSelected}/>
+              </Grid>
+              <Grid item xs>
+                <Pet type="dog" handleAnimalSelected={this.handleAnimalSelected}/>
+              </Grid>
+            </Grid>
             <ContactInfo/>
             <Button variant="contained" type="submit">Submit</Button>
           </form>

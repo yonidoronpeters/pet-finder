@@ -1,16 +1,21 @@
 import React from 'react';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormGroup from '@material-ui/core/FormGroup';
 
 const Age = ({ pet }) => (
   <div className="age">
-    <h3>Age</h3>
-    <input type="checkbox" id={`${pet}-puppy`} name={`${pet}age`} value={`${pet}-young`}/>
-    <label htmlFor={`${pet}-puppy`}>Less than a year</label><br/>
-    <input type="checkbox" id={`${pet}-adolescent`} name={`${pet}age`} value={`${pet}-adolescent`}/>
-    <label htmlFor={`${pet}-adolescent`}>1-2 years</label><br/>
-    <input type="checkbox" id={`${pet}-adult`} name={`${pet}age`} value={`${pet}-adult`}/>
-    <label htmlFor={`${pet}-adult`}>3-6 years</label><br/>
-    <input type="checkbox" id={`${pet}-senior`} name={`${pet}age`} value={`${pet}-senior`}/>
-    <label htmlFor={`${pet}-senior`}>7+ years</label>
+    <FormControl component="fieldset">
+      <FormLabel component="legend">Age</FormLabel>
+      <FormGroup aria-label="gender" name={`${pet}age`}>
+        <FormControlLabel value={`${pet}-young`} control={<Checkbox/>} label="Less than a year"/>
+        <FormControlLabel value={`${pet}-adolescent`} control={<Checkbox/>} label="1-2 years"/>
+        <FormControlLabel value={`${pet}-adult`} control={<Checkbox/>} label="3-6 years"/>
+        <FormControlLabel value={`${pet}-senior`} control={<Checkbox/>} label="7+ years"/>
+      </FormGroup>
+    </FormControl>
   </div>
 );
 
