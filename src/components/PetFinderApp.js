@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ContactInfo from './ContactInfo';
 import Pet from './Pet';
 import ConfirmationModal from './ConfirmationModal';
@@ -12,6 +12,10 @@ const hairOptions = ['short', 'medium', 'long'];
 const PetFinderApp = () => {
   const [subscription, setSubscription] = useState(undefined);
   const [errors, setErrors] = useState([]);
+
+  useEffect(() => {
+    console.log(subscription);
+  })
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
@@ -58,13 +62,13 @@ const PetFinderApp = () => {
   };
 
   const getCheckboxValues = (values) => {
-    const ages = [];
+    const checked = [];
     values.forEach(value => {
       if (document.querySelector(`input[value="${value}"]`).checked) {
-        ages.push(value);
+        checked.push(value);
       }
     });
-    return ages;
+    return checked;
   };
 
   const validatePhoneNumber = (e) => {
