@@ -25,7 +25,6 @@ const PetFinderApp = () => {
       cats,
       contact: { phone: e.target.elements.phone.value }
     });
-    handleAddNotification();
   };
 
   const getDogs = (e) => {
@@ -76,15 +75,6 @@ const PetFinderApp = () => {
     }
     if (!phone.match(phoneRegEx)) {
       return `Invalid phone number: ${phone}`;
-    }
-  };
-
-  const handleAddNotification = () => {
-    if (!errors.length) {
-      console.log(subscription);
-    } else {
-      console.log(`errors: ${errors}`);
-      setSubscription(undefined);
     }
   };
 
