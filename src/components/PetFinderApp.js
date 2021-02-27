@@ -5,6 +5,7 @@ import ConfirmationModal from './ConfirmationModal';
 import ErrorModal from './ErrorModal';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import axios from "axios";
 
 const ageOptions = ['young', 'adolescent', 'adult', 'senior'];
 const hairOptions = ['short', 'medium', 'long'];
@@ -15,6 +16,18 @@ const PetFinderApp = () => {
 
   useEffect(() => {
     console.log(subscription);
+    async function sendSubscription() {
+      try {
+        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/subscriptions`, subscription);
+        console.log(response.status);
+      } catch (e) {
+        console.log(e.message);
+      }
+    }
+
+    if (subscription) {
+      sendSubscription();
+    }
   })
 
   const handleSubmitForm = (e) => {
